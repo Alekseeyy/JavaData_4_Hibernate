@@ -5,23 +5,18 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.io.Serializable;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Person implements Serializable {
-    @Id
-    private String name;
-    @Id
-    private String surname;
-    @Id
-    private int age;
+public class Person {
 
+    @EmbeddedId
+    private PersonId id;
     private String phone_number;
-    private String city_of_living;
+    private String city;
 }
